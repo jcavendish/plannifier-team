@@ -1,6 +1,6 @@
 # Ticket 1: Prompt quality — extraction accuracy fixes
 
-**Status:** Open
+**Status:** Done
 **Assignee:** —
 **Severity:** High
 **Size:** S
