@@ -1,7 +1,7 @@
 # Ticket 3: Document attachment & vendor contracts
 
 **Status:** In Progress
-**Assignee:** Devon
+**Assignee:** Qamar
 **Severity:** High
 **Size:** L
 **Type:** Feature
