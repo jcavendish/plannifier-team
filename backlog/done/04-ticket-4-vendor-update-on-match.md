@@ -1,7 +1,7 @@
 # Ticket 4: Vendor update-on-match instead of skip
 
-**Status:** Open
-**Assignee:** —
+**Status:** Done
+**Assignee:** Qamar
 **Severity:** Medium
 **Size:** S
 **Type:** Feature
