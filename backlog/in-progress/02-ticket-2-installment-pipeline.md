@@ -1,7 +1,7 @@
 # Ticket 2: Installment pipeline end-to-end
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
 **Severity:** High
 **Size:** M
 **Type:** Feature
