@@ -1,7 +1,7 @@
 # Ticket 3: Document attachment & vendor contracts
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
 **Severity:** High
 **Size:** L
 **Type:** Feature
