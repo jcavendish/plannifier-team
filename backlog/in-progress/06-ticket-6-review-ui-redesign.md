@@ -1,7 +1,7 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Qamar
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor
