@@ -55,6 +55,6 @@ Import Feature - Batch F
 
 Foundational ticket. Tickets 2-4 can proceed in parallel after this one is solid.
 
-## Comments
+## Latest Updates
 
-(Ticket complete. All discussion and review history should be captured here with timestamps and agent names.)
+See `01-ticket-1-prompt-quality.comments.md` for full discussion history.

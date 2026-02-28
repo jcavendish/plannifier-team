@@ -32,7 +32,7 @@ Tickets here have passed testing and are ready to merge or have already been mer
 
 ## File Structure
 
-Each ticket is a markdown file with this structure:
+### Main Ticket File: `NN-ticket-slug.md`
 
 ```markdown
 # Ticket N: Title
@@ -45,41 +45,65 @@ Each ticket is a markdown file with this structure:
 **Depends On:** (Ticket 1, Ticket 2, etc. — leave blank if none)
 
 ## Summary
-Brief overview.
+Brief overview of what needs to be done.
 
 ## Changes Required
-- What needs to change
+- What files need to change
 - Implementation approach
-- Key files
+- Key files affected
 
 ## Files Changed
-List of files that will be modified.
+- extraction-prompt.ts
+- conflict-resolver.ts
+- wedding-creator.ts
 
 ## Related Issues
-Related GitHub issue numbers.
+- #11, #16, #26
 
 ## Testing
-How to validate.
+How to validate this is complete.
 
-## Comments
+## Latest Updates
 
-### Devon — 2026-02-27 15:30
-Starting implementation. Estimated 2 days for core changes, 1 day for tests.
+See `NN-ticket-slug.comments.md` for full discussion history.
 
-### Qamar — 2026-02-28 10:15
-Ready for QA testing. Branch: feat/ticket-4, key changes in conflict-resolver.ts and wedding-creator.ts.
-
-### Notes
-- Encountered edge case with null vendor phone numbers—handled with COALESCE in RPC
-- Added 5 new E2E test cases covering update scenarios
+**Recent:**
+- Devon — 2026-02-28 14:20: Ready for QA testing
+- Qamar — 2026-02-28 15:30: QA in progress
 ```
 
-**Comments section guidelines:**
-- Format: `### [Name] — [ISO date] [HH:MM]`
+### Separate Comments File: `NN-ticket-slug.comments.md`
+
+```markdown
+# Ticket N Comments
+
+### Devon — 2026-02-28 10:30
+Starting implementation. Estimated 2 days for core changes, 1 day for tests.
+
+### Devon — 2026-02-28 12:15
+Schema changes done. Working on RPC migration next.
+
+### Devon — 2026-02-28 14:20
+Implementation complete. Ready for QA testing. Branch: feat/ticket-4.
+
+### Qamar — 2026-02-28 15:30
+Starting QA. Will test 6 flows covering create/update/skip scenarios.
+
+### Qamar — 2026-02-28 16:45
+✅ QA passed all flows. No Critical/High issues. Mobile layout good at 390px.
+
+### Notes
+- Encountered edge case with null vendor phone numbers—handled with COALESCE
+- Added 5 new E2E test cases covering update scenarios
+- Mobile: confirm button wraps at 390px but still tappable
+```
+
+**Comments file guidelines:**
+- Format: `### [Name] — [YYYY-MM-DD HH:MM]` followed by update
 - Keep comments focused on ticket-specific context
-- Use for: progress updates, blockers, test results, questions, decisions
-- Avoid: off-topic chat (use Discord for that)
-- Post brief summary on Discord, link to ticket file for details
+- Use for: progress updates, blockers, test results, decisions, edge cases
+- One comment per person per update (don't edit previous comments)
+- Post brief summary on Discord, details go in comments file
 
 ## Workflow Example
 

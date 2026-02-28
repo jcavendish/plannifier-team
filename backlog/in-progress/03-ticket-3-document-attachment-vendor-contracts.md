@@ -81,9 +81,9 @@ Import Feature - Batch G
 
 Can proceed in parallel with Tickets 2 and 4 after Ticket 1 is solid.
 
-## Comments
+## Latest Updates
 
-### Qamar — 2026-02-28 09:45
-Starting QA testing. Will test extraction pipeline file tracking, vendor_contracts row creation, and document attachment.
+See `03-ticket-3-document-attachment-vendor-contracts.comments.md` for full discussion.
 
-(Continue adding comments as work progresses. Format: `### [Name] — [Date] [Time]` followed by update.)
+**Recent:**
+- Qamar — 2026-02-28 09:45: Starting QA testing

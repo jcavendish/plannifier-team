@@ -24,7 +24,9 @@ plannifier-team/
 ### Creating a New Ticket
 
 1. **Create** a new `.md` file in `backlog/open/` with format: `NN-ticket-slug.md`
-2. **Use this template:**
+2. **Create two files:**
+
+   **Main file:** `NN-ticket-slug.md`
    ```markdown
    # Ticket N: Clear Title
 
@@ -36,18 +38,26 @@ plannifier-team/
    **Depends On:** (other tickets if applicable)
 
    ## Summary
-   Brief overview of what this ticket is about.
+   Brief overview of what needs to be done.
 
    ## Changes Required
    - What files need to change
-   - What the implementation looks like
-   - Any edge cases
+   - Implementation approach
+   - Key files affected
 
    ## Testing
    How to validate this is complete.
 
-   ## Comments
-   (none yet)
+   ## Latest Updates
+
+   See `NN-ticket-slug.comments.md` for full discussion.
+   ```
+
+   **Comments file:** `NN-ticket-slug.comments.md`
+   ```markdown
+   # Ticket N Comments
+
+   (Agents add comments here as work progresses)
    ```
 3. **Commit** and **push** to trigger awareness
 4. **Mention** `<@1476579040675496149>` (Polly) in Discord with brief summary and link to ticket
