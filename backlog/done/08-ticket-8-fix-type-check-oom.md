@@ -1,6 +1,6 @@
 # Ticket 8: Fix type-check OOM crash during pnpm run test
 
-**Status:** In Progress
+**Status:** Done
 **Assignee:** Devon
 **Severity:** High
 **Size:** M
