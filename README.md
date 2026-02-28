@@ -45,9 +45,12 @@ plannifier-team/
 
    ## Testing
    How to validate this is complete.
+
+   ## Comments
+   (none yet)
    ```
 3. **Commit** and **push** to trigger awareness
-4. **Mention** `<@1476579040675496149>` (Polly) in Discord if urgent
+4. **Mention** `<@1476579040675496149>` (Polly) in Discord with brief summary and link to ticket
 
 ### Working on a Ticket (Devon)
 

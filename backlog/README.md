@@ -60,7 +60,26 @@ Related GitHub issue numbers.
 
 ## Testing
 How to validate.
+
+## Comments
+
+### Devon — 2026-02-27 15:30
+Starting implementation. Estimated 2 days for core changes, 1 day for tests.
+
+### Qamar — 2026-02-28 10:15
+Ready for QA testing. Branch: feat/ticket-4, key changes in conflict-resolver.ts and wedding-creator.ts.
+
+### Notes
+- Encountered edge case with null vendor phone numbers—handled with COALESCE in RPC
+- Added 5 new E2E test cases covering update scenarios
 ```
+
+**Comments section guidelines:**
+- Format: `### [Name] — [ISO date] [HH:MM]`
+- Keep comments focused on ticket-specific context
+- Use for: progress updates, blockers, test results, questions, decisions
+- Avoid: off-topic chat (use Discord for that)
+- Post brief summary on Discord, link to ticket file for details
 
 ## Workflow Example
 
