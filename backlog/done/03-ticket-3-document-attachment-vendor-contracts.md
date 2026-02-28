@@ -1,6 +1,6 @@
 # Ticket 3: Document attachment & vendor contracts
 
-**Status:** In Progress
+**Status:** Done
 **Assignee:** Qamar
 **Severity:** High
 **Size:** L
@@ -87,3 +87,19 @@ See `03-ticket-3-document-attachment-vendor-contracts.comments.md` for full disc
 
 **Recent:**
 - Qamar — 2026-02-28 09:45: Starting QA testing
+
+---
+
+## QA Sign-off (Qamar)
+
+**Round 1 — FAIL:** TypeScript errors in 4 test fixtures (missing `vendorContracts: []` in mock factories). Fixed by Devon (commit cd0851f).
+
+**Round 2 — PASS ✅**
+- Type-check: clean
+- Unit tests: 959 pass, 0 fail
+- Browser testing: 30 flows across desktop, mobile, en + pt-BR locales
+- E2E tests: 9 new tests written and passing (`document-import-vendor-contracts.critical.spec.ts`)
+
+**Medium issue noted (not blocking):** Vendor name invisible on mobile when contract has both source badge + status badge. `shrink-0` on badge container collapses name span to `width:0`. Recommend follow-up ticket.
+
+**Verdict:** PASS. Ready for PR. 🟢
