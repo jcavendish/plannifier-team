@@ -1,6 +1,6 @@
 # Ticket 9: Mobile layout — vendor name hidden behind contract badges
 
-**Status:** Open
+**Status:** Done
 **Assignee:** —
 **Severity:** Medium
 **Size:** XS
