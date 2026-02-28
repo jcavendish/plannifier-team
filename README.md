@@ -12,21 +12,23 @@ plannifier-team/
 │   ├── done/               # Completed and QA-passed
 │   └── README.md           # Backlog workflow
 ├── archive/
-│   ├── 2026-02/            # Sprint archive (monthly)
+│   ├── 2026-02/            # Sprint archive
 │   └── summary.md          # Year-to-date summary
 ├── docs/                   # Team documentation
 ├── team/                   # Team coordination files
 └── README.md               # This file
 ```
 
-## Workflow
+## Workflow Overview
+
+**Discord is minimal (brief notifications only)**
+**PRs are the primary communication hub** (detailed comments, discussion, diffs)
+**Ticket files stay lean** (spec + status + PR link)
 
 ### Creating a New Ticket
 
-1. **Create** a new `.md` file in `backlog/open/` with format: `NN-ticket-slug.md`
-2. **Create two files:**
-
-   **Main file:** `NN-ticket-slug.md`
+1. **Create** `.md` file in `backlog/open/` with format: `NN-ticket-slug.md`
+2. **Use this template:**
    ```markdown
    # Ticket N: Clear Title
 
@@ -36,6 +38,7 @@ plannifier-team/
    **Size:** XS|S|M|L|XL
    **Type:** Feature|Bug Fix|Refactor|Docs|Research
    **Depends On:** (other tickets if applicable)
+   **PR:** (empty — filled when PR opens)
 
    ## Summary
    Brief overview of what needs to be done.
@@ -47,94 +50,144 @@ plannifier-team/
 
    ## Testing
    How to validate this is complete.
-
-   ## Latest Updates
-
-   See `NN-ticket-slug.comments.md` for full discussion.
    ```
+3. **Commit** and **push**
+4. **Post Discord:** "New ticket: N. Details in ticket file."
 
-   **Comments file:** `NN-ticket-slug.comments.md`
-   ```markdown
-   # Ticket N Comments
+---
 
-   (Agents add comments here as work progresses)
-   ```
-3. **Commit** and **push** to trigger awareness
-4. **Mention** `<@1476579040675496149>` (Polly) in Discord with brief summary and link to ticket
+## Development Workflow
 
-### Working on a Ticket (Devon)
+### Phase 1: Devon Develops
 
-1. **Pick** a ticket from `backlog/open/`
-2. **Move** it to `backlog/in-progress/`
-3. **Update** the file header:
+1. **Pick** ticket from `backlog/open/`
+2. **Move** to `backlog/in-progress/`, update:
    ```markdown
    **Status:** In Progress
    **Assignee:** Devon
    ```
-4. **Work** on the implementation (see CLAUDE.md in main repo)
-5. **When ready for QA:** hand off to Qamar
+3. **Implement** (see CLAUDE.md in main repo)
+4. **When ready,** open **draft PR** against `staging`:
+   ```bash
+   gh pr create --base staging --draft --title "draft: [Ticket N] short desc" --body "See comments below"
+   ```
+5. **Post detailed PR comment** with:
+   - What changed (summary)
+   - How to test (reproduction steps)
+   - Which areas might regress
+   - Edge cases, known limitations
 
-### QA Testing (Qamar)
+6. **Update ticket header:**
+   ```markdown
+   **PR:** https://github.com/.../pull/XXX
+   ```
+7. **Post Discord:** "Ticket N ready for QA. See PR #XXX"
 
-1. **Receive** ticket from Devon (still in `backlog/in-progress/`)
-2. **Test** using your QA process
-3. **If PASS:** Move to `backlog/done/`, update **Status** to "Done"
-4. **If FAIL:** Update ticket with issues, move back to `backlog/open/`, notify Devon
+### Phase 2: Qamar Tests
+
+1. **Check** draft PR (linked in ticket)
+2. **Read** Devon's detailed PR comment
+3. **Run QA** (all flows, mobile, locales, edge cases)
+4. **Post PR comment** with test results:
+   ```
+   ## QA Results
+
+   **Status:** ✅ PASS / ❌ FAIL
+
+   **Flows tested:**
+   - Flow 1: ✅ PASS
+   - Flow 2: ✅ PASS
+   - Mobile: ✅ responsive at 390px
+
+   **Environment:** Desktop, Mobile, en/pt-BR
+   ```
+
+5. **If PASS:**
+   - Post Discord: "Ticket N QA passed. Ready for code review."
+   - Leave PR in draft (Devon will convert after approval)
+
+6. **If FAIL:**
+   - Post detailed PR comment with each issue
+   - Post Discord: "Ticket N QA failed. See PR #XXX"
+   - Leave PR in draft
+   - Devon fixes, pushes new commits → Qamar re-tests
+
+### Phase 3: Code Review & Merge
+
+1. **Joao** reviews PR (code + all comments)
+2. **Approves** and merges to `staging`
+3. **Post Discord:** "Ticket N merged"
+4. **Devon** updates ticket:
+   - Move from `in-progress/` → `done/`
+   - Update **Status** → Done
 
 ### Archiving (End of Sprint)
 
-At sprint end (usually end of month):
+1. Move `done/` tickets to `archive/2026-SXX/`
+2. Create summary:
+   ```
+   ~/workspace/plannifier-team/archive/2026-SXX/summary.md
+   ~/workspace/plannifier/docs/team/archive/2026-SXX/summary.md
+   ```
+3. Include: completed tickets, deferred items, decisions, metrics
 
-1. Move `backlog/done/` tickets to `archive/2026-0X/`
-2. Create `archive/2026-0X/summary.md` with:
-   - Sprint dates
-   - Tickets completed (links)
-   - Metrics (velocity, quality notes)
-   - Blockers encountered
+---
 
 ## Current Backlog
 
 ### Open (8 tickets)
 
-- **Ticket 1:** Prompt quality — extraction accuracy fixes (Batch F, foundational)
+- **Ticket 1:** Prompt quality — extraction accuracy fixes (Batch F)
 - **Ticket 2:** Installment pipeline end-to-end (Batch G, depends on #1)
 - **Ticket 3:** Document attachment & vendor contracts (Batch G, depends on #1)
 - **Ticket 4:** Vendor update-on-match instead of skip (Batch G, depends on #1)
-- **Ticket 5:** Incremental import for existing weddings (P2 deferred, depends on #1-4)
-- **Ticket 6:** Review UI redesign — swipable per-type cards (UI Enhancement, depends on #2-3)
-- **Ticket 7:** Housekeeping & observability (Polish, no dependencies)
-- **Ticket 8:** Fix type-check OOM crash during pnpm run test (Build Infra)
+- **Ticket 5:** Incremental import for existing weddings (P2, depends on #1-4)
+- **Ticket 6:** Review UI redesign — swipable cards (UI Enhancement)
+- **Ticket 7:** Housekeeping & observability (Polish)
+- **Ticket 8:** Fix type-check OOM crash (Build Infra)
 
 ### In Progress
 
-(None)
+(See `/in-progress/`)
 
 ### Done
 
-(None)
+(See `/done/`)
+
+---
+
+## Communication
+
+### Discord (Minimal)
+- "Ticket N ready for QA. See PR #XXX"
+- "Ticket N QA passed."
+- "Ticket N merged."
+- Emergencies / blockers only
+
+### PRs (Primary Hub)
+- Devon's detailed testing approach
+- All QA results and issues
+- Code review discussion
+- Permanent record (archived with code)
+
+### Ticket Files
+- Specification (what + why)
+- Status (Open/In Progress/Done)
+- PR link (once opened)
+- Dependencies + priority
+
+---
 
 ## Related Repos
 
 - **Main Codebase:** `~/workspace/plannifier` — Next.js 15, Supabase, TypeScript
-- **Team Docs (in code repo):** `~/workspace/plannifier/docs/team/` — STATE.md, IN_PROGRESS.md, DECISIONS.md
+- **Team Docs:** `~/workspace/plannifier/docs/team/` — STATE.md, IN_PROGRESS.md, DECISIONS.md
 
 ## Team
 
-- **Polly** (`<@1476579040675496149>`) — Product Owner, owns backlog priority
-- **Devon** (`<@1476576785822126151>`) — Developer, picks tickets to implement
-- **Qamar** (`<@1476583149205979368>`) — QA Engineer, validates implementations
-- **Joao** (`<@690532830975098882>`) — Lead, approves plans, merges PRs
+- **Polly** (`<@1476579040675496149>`) — Product Owner
+- **Devon** (`<@1476576785822126151>`) — Senior Developer
+- **Qamar** (`<@1476583149205979368>`) — QA Engineer
+- **Joao** (`<@690532830975098882>`) — Tech Lead
 
-## Process
-
-All team members follow the **3-phase async workflow** defined in their AGENTS.md files:
-
-1. **Phase 1 (Sync):** Acknowledge immediately, then RETURN
-2. **Phase 2 (Async):** Do heavy work in background
-3. **Phase 3 (Async):** Post results and coordinate
-
-This keeps Discord responsive and prevents timeout issues.
-
----
-
-**Last updated:** 2026-02-27
+**Last updated:** 2026-02-28

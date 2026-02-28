@@ -32,7 +32,7 @@ Tickets here have passed testing and are ready to merge or have already been mer
 
 ## File Structure
 
-### Main Ticket File: `NN-ticket-slug.md`
+Each ticket is a **single lean markdown file:**
 
 ```markdown
 # Ticket N: Title
@@ -43,6 +43,7 @@ Tickets here have passed testing and are ready to merge or have already been mer
 **Size:** XS | S | M | L | XL
 **Type:** Feature | Bug Fix | Refactor | Docs | Research
 **Depends On:** (Ticket 1, Ticket 2, etc. — leave blank if none)
+**PR:** (Link to PR once opened)
 
 ## Summary
 Brief overview of what needs to be done.
@@ -52,58 +53,28 @@ Brief overview of what needs to be done.
 - Implementation approach
 - Key files affected
 
-## Files Changed
-- extraction-prompt.ts
-- conflict-resolver.ts
-- wedding-creator.ts
-
-## Related Issues
-- #11, #16, #26
-
 ## Testing
 How to validate this is complete.
 
-## Latest Updates
-
-See `NN-ticket-slug.comments.md` for full discussion history.
-
-**Recent:**
-- Devon — 2026-02-28 14:20: Ready for QA testing
-- Qamar — 2026-02-28 15:30: QA in progress
+## Related Issues
+- #11, #16, #26
 ```
 
-### Separate Comments File: `NN-ticket-slug.comments.md`
+**That's it.** All discussion happens in the PR (which is linked above).
 
-```markdown
-# Ticket N Comments
+**Workflow:**
+1. Ticket starts as **Open** in `backlog/open/`
+2. Devon moves to `in-progress/`, updates **Status** and **Assignee**
+3. Devon opens **draft PR** against staging → all detailed comments go in PR
+4. Qamar reviews PR comments → posts QA results as PR comment
+5. If QA passes → PR converted to ready-for-review (still draft → ready)
+6. After merge → ticket moved to `backlog/done/`, **PR** field updated
 
-### Devon — 2026-02-28 10:30
-Starting implementation. Estimated 2 days for core changes, 1 day for tests.
-
-### Devon — 2026-02-28 12:15
-Schema changes done. Working on RPC migration next.
-
-### Devon — 2026-02-28 14:20
-Implementation complete. Ready for QA testing. Branch: feat/ticket-4.
-
-### Qamar — 2026-02-28 15:30
-Starting QA. Will test 6 flows covering create/update/skip scenarios.
-
-### Qamar — 2026-02-28 16:45
-✅ QA passed all flows. No Critical/High issues. Mobile layout good at 390px.
-
-### Notes
-- Encountered edge case with null vendor phone numbers—handled with COALESCE
-- Added 5 new E2E test cases covering update scenarios
-- Mobile: confirm button wraps at 390px but still tappable
-```
-
-**Comments file guidelines:**
-- Format: `### [Name] — [YYYY-MM-DD HH:MM]` followed by update
-- Keep comments focused on ticket-specific context
-- Use for: progress updates, blockers, test results, decisions, edge cases
-- One comment per person per update (don't edit previous comments)
-- Post brief summary on Discord, details go in comments file
+**Why no separate comments file?**
+- PR is the primary record (code + discussion + diffs)
+- Ticket file stays focused (specification + status)
+- Comments are archived with the code (git history)
+- Permanent, searchable, linked to specific code changes
 
 ## Workflow Example
 
