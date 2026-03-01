@@ -1,7 +1,7 @@
 # Ticket 5: Incremental import for existing weddings
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
 **Severity:** Medium
 **Size:** L
 **Type:** Feature

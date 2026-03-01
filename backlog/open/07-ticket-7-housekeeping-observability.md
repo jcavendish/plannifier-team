@@ -1,7 +1,7 @@
 # Ticket 7: Housekeeping & observability
 
 **Status:** Open
-**Assignee:** —
+**Assignee:** Devon
 **Severity:** Low
 **Size:** S
 **Type:** Refactor
