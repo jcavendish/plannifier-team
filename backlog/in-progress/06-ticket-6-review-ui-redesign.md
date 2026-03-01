@@ -1,7 +1,7 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
 **Status:** In Progress
-**Assignee:** Qamar
+**Assignee:** Devon
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor
@@ -69,3 +69,25 @@ Import Feature - UI Enhancement
 ## Timing
 
 Should follow Tickets 2-3 so we're designing for final schema
+
+---
+
+## QA Results — 2026-03-01
+
+**Status:** ❌ FAIL — returned to Devon
+
+**Build/Lint/Unit:** ✅ All pass (build clean, 959/959 unit tests, 0 lint errors introduced)
+
+**High severity issues found:**
+
+1. **Existing E2E tests broken** — `document-import-review.critical.spec.ts` not updated for card-stack architecture:
+   - `'review screen renders with all entity sections'` — expects all sections in DOM at once; new UI renders only active tab's section
+   - `'entity sections show correct item counts'` — same root cause
+   - 5× `'section can be expanded and collapsed'` — expects collapsed by default; new code uses `defaultExpanded={true}`
+   - `'confidence indicators visible on sections'` — checks multiple sections simultaneously
+
+**New E2E tests written by Qamar:** `tests/document-import-review-card-nav.critical.spec.ts` (11 tests)
+
+**Action required from Devon:** Update `document-import-review.critical.spec.ts` to navigate to each tab before asserting section content, and invert expand/collapse initial state assertions.
+
+See PR #337 comment for full details.

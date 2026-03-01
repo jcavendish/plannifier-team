@@ -1,12 +1,12 @@
 # Ticket 5: Incremental import for existing weddings
 
 **Status:** In Progress
-**Assignee:** Devon
+**Assignee:** Qamar
 **Severity:** Medium
 **Size:** L
 **Type:** Feature
 **Depends On:** Tickets 1-4 (foundational)
-**Latest Update:** Plan ready, awaiting Joao approval (2026-03-01)
+**Latest Update:** Dev complete, awaiting QA (PR #338)
 
 ## Summary
 

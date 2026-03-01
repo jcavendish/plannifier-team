@@ -1,5 +1,5 @@
 # Board State
-Updated: 2026-03-01T08:36:58.097Z
+Updated: 2026-03-01T14:56:00.971Z
 
 ## Open (assigned — ready for pickup)
 
@@ -16,7 +16,7 @@ Updated: 2026-03-01T08:36:58.097Z
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/05-ticket-5-plan.md
 
 ### Ticket 6: Review UI redesign — swipable per-type cards
-- **Assignee:** Qamar
+- **Assignee:** Devon
 - **Severity:** Medium | **Size:** M | **Type:** Refactor
 - **Depends On:** Tickets 2-3 (schema expansion)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/06-ticket-6-review-ui-redesign.md
