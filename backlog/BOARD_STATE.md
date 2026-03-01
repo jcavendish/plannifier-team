@@ -1,13 +1,5 @@
 # Board State
-Updated: 2026-03-01T16:58:37.347Z
-
-## Open (assigned — ready for pickup)
-
-### Ticket 7: Housekeeping & observability
-- **Assignee:** Devon
-- **Severity:** Low | **Size:** S | **Type:** Refactor
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/07-ticket-7-housekeeping-observability.md
-> Add import analytics tracking, per-import token budget ceiling, file retention cleanup, and cross-document vendor dedup heuristic (same category + same contact → merge).
+Updated: 2026-03-01T17:06:12.330Z
 
 ## In Progress
 
@@ -21,6 +13,10 @@ Updated: 2026-03-01T16:58:37.347Z
 - **Depends On:** Tickets 2-3 (schema expansion)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/06-ticket-6-review-ui-redesign.md
 > Redesign review screen from single-scroll page to swipable cards/tabs per entity type. Needed for scalability as schema expands to 10+ entity types.
+
+### Ticket 7: Housekeeping & Observability — Implementation Plan
+- **Assignee:** —
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/07-ticket-7-plan.md
 
 ## Done
 
