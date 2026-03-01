@@ -1,14 +1,7 @@
 # Board State
-Updated: 2026-03-01T08:25:53.058Z
+Updated: 2026-03-01T08:36:58.097Z
 
 ## Open (assigned — ready for pickup)
-
-### Ticket 5: Incremental import for existing weddings
-- **Assignee:** Devon
-- **Severity:** Medium | **Size:** L | **Type:** Feature
-- **Depends On:** Tickets 1-4 (foundational)
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/05-ticket-5-incremental-import.md
-> Enable per-section import into existing weddings. Currently, import only creates new weddings. Planners need to backfill missing data into manually-created weddings (guests, vendors, budgets). Includes preview/diff mode showing what will create/update/skip before committing.
 
 ### Ticket 7: Housekeeping & observability
 - **Assignee:** Devon
@@ -17,6 +10,10 @@ Updated: 2026-03-01T08:25:53.058Z
 > Add import analytics tracking, per-import token budget ceiling, file retention cleanup, and cross-document vendor dedup heuristic (same category + same contact → merge).
 
 ## In Progress
+
+### Ticket 5: Incremental Import for Existing Weddings
+- **Assignee:** —
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/05-ticket-5-plan.md
 
 ### Ticket 6: Review UI redesign — swipable per-type cards
 - **Assignee:** Qamar
