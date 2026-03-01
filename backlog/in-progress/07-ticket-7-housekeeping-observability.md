@@ -1,6 +1,6 @@
 # Ticket 7: Housekeeping & observability
 
-**Status:** Open
+**Status:** In Progress
 **Assignee:** Devon
 **Severity:** Low
 **Size:** S
