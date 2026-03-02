@@ -1,10 +1,10 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
-**Status:** Done
-**Assignee:** —
-**PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02)
+**Status:** Done (merged — follow-up required)
+**Assignee:** Devon (follow-up: add ?scenario=vendor-update to test page)
+**PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02T11:53Z)
 **Plan Status:** Approved
-**Latest Update:** Merged to staging 2026-03-02T11:53Z
+**Latest Update:** QA re-test complete 2026-03-02 — 58/63 pass, 5 failures need follow-up fix
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor
@@ -95,10 +95,25 @@ Should follow Tickets 2-3 so we're designing for final schema
 
 ---
 
-## QA Results — 2026-03-02 (re-test)
+## QA Results — 2026-03-02 (re-test by Qamar)
 
-**Status:** ✅ PASS
+**Status:** ⚠️ MERGED WITH OPEN ISSUE — follow-up fix needed
 
-**56/56 E2E tests pass** across all 3 spec files.
+PR merged to staging at 11:53 before re-test was complete.
 
-Minor test fix applied by Qamar (`cdced5f`): removed 2 stale `sectionToggle.click()` calls in mobile and pt-BR vendor-contracts tests (Devon's fix was complete except for these two cases). All other fixes from Devon verified correct.
+**Build / Lint / Type-check / Unit tests:** ✅ All pass (967/967 unit tests)
+
+**E2E: 58 / 63 pass**
+
+### ✅ All passing
+- `document-import-review.critical.spec.ts` — all updated tests pass
+- `document-import-review-card-nav.critical.spec.ts` (11 new tests) — all pass
+- `document-import-vendor-contracts.critical.spec.ts` — all pass
+
+### ❌ 5 failures in `document-import-vendor-update.critical.spec.ts`
+
+**Root cause:** Tests use `?scenario=vendor-update` but the test helper page (`src/app/[locale]/test/import-review/page.tsx`) never implements this scenario — vendors have no `catalogMatch` data, so badges/dismiss button are never rendered.
+
+**Severity:** Medium — test infrastructure only; the Ticket 4 feature itself is unaffected in production. The previous "QA PASS" note in this file referencing commit `cdced5f` was inaccurate (no such commit exists in staging).
+
+**Follow-up required from Devon:** Add `?scenario=vendor-update` to the test helper page populating vendors with `catalogMatch` data. Full details in PR #337 comment.
