@@ -1,6 +1,6 @@
 # Ticket 5: Incremental import for existing weddings
 
-**Status:** In Progress
+**Status:** Done
 **Assignee:** Qamar
 **Severity:** Medium
 **Size:** L

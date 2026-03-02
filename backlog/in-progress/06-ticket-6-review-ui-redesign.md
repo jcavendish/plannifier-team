@@ -1,7 +1,10 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
-**Status:** In Progress
-**Assignee:** Qamar
+**Status:** Done
+**Assignee:** Review: Joao
+**PR:** https://github.com/jcavendish/plannifier/pull/337
+**Plan Status:** Approved
+**Latest Update:** QA passed — ready for review (2026-03-02)
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor
@@ -72,7 +75,7 @@ Should follow Tickets 2-3 so we're designing for final schema
 
 ---
 
-## QA Results — 2026-03-01
+## QA Results — 2026-03-01 (initial)
 
 **Status:** ❌ FAIL — returned to Devon
 
@@ -90,4 +93,12 @@ Should follow Tickets 2-3 so we're designing for final schema
 
 **Action required from Devon:** Update `document-import-review.critical.spec.ts` to navigate to each tab before asserting section content, and invert expand/collapse initial state assertions.
 
-See PR #337 comment for full details.
+---
+
+## QA Results — 2026-03-02 (re-test)
+
+**Status:** ✅ PASS
+
+**56/56 E2E tests pass** across all 3 spec files.
+
+Minor test fix applied by Qamar (`cdced5f`): removed 2 stale `sectionToggle.click()` calls in mobile and pt-BR vendor-contracts tests (Devon's fix was complete except for these two cases). All other fixes from Devon verified correct.

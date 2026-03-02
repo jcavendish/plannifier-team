@@ -1,7 +1,8 @@
 # Ticket 9: Mobile layout — vendor name hidden behind contract badges
 
-**Status:** Done
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Qamar
+**PR:** https://github.com/jcavendish/plannifier/pull/336
 **Severity:** Medium
 **Size:** XS
 **Type:** Bug Fix

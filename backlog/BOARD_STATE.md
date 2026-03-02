@@ -1,22 +1,35 @@
 # Board State
-Updated: 2026-03-01T17:06:12.330Z
+Updated: 2026-03-02T13:14:00.000Z
 
 ## In Progress
 
-### Ticket 5: Incremental Import for Existing Weddings
-- **Assignee:** —
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/05-ticket-5-plan.md
+### Ticket 5: Incremental import for existing weddings
+- **Assignee:** Qamar
+- **Plan Status:** Approved
+- **Latest Update:** Dev complete, awaiting QA (PR #338)
+- **Severity:** Medium | **Size:** L | **Type:** Feature
+- **Depends On:** Tickets 1-4 (foundational)
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/05-ticket-5-incremental-import.md
+> Enable per-section import into existing weddings. Currently, import only creates new weddings. Planners need to backfill missing data into manually-created weddings (guests, vendors, budgets). Includes preview/diff mode showing what will create/update/skip before committing.
 
 ### Ticket 6: Review UI redesign — swipable per-type cards
-- **Assignee:** Qamar
+- **Assignee:** Review: Joao
+- **Plan Status:** Approved
+- **Latest Update:** QA passed — ready for review (2026-03-02)
 - **Severity:** Medium | **Size:** M | **Type:** Refactor
 - **Depends On:** Tickets 2-3 (schema expansion)
+- **PR:** https://github.com/jcavendish/plannifier/pull/337
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/06-ticket-6-review-ui-redesign.md
 > Redesign review screen from single-scroll page to swipable cards/tabs per entity type. Needed for scalability as schema expands to 10+ entity types.
 
-### Ticket 7: Housekeeping & Observability — Implementation Plan
-- **Assignee:** —
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/07-ticket-7-plan.md
+### Ticket 9: Mobile layout — vendor name hidden behind contract badges
+- **Assignee:** Qamar
+- **Status:** In Progress
+- **PR:** https://github.com/jcavendish/plannifier/pull/336
+- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
+- **Depends On:** Ticket 3 (landed)
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/09-ticket-9-mobile-vendor-contract-badge-overflow.md
+> On small viewports (≤390px), when a vendor contract card shows both the "Source document attached" badge AND a status badge simultaneously, the vendor name collapses to width:0 and becomes invisible.
 
 ## Done
 
@@ -47,15 +60,19 @@ Updated: 2026-03-01T17:06:12.330Z
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/04-ticket-4-vendor-update-on-match.md
 > When planner import detects existing vendor (by email/phone/name), update empty fields instead of skipping. Adopt admin import's 3-action model: create (new), update (fill gaps), match (no change).
 
+### Ticket 7: Housekeeping & observability
+- **Assignee:** —
+- **Plan Status:** Approved
+- **Latest Update:** Merged to staging 2026-03-02. Conflicts resolved (confidence badge locator scoping).
+- **Severity:** Low | **Size:** S | **Type:** Refactor
+- **PR:** https://github.com/jcavendish/plannifier/pull/339 (merged)
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/07-ticket-7-housekeeping-observability.md
+> Add import analytics tracking, per-import token budget ceiling, file retention cleanup, and cross-document vendor dedup heuristic (same category + same contact → merge).
+
 ### Ticket 8: Fix type-check OOM crash during pnpm run test
 - **Assignee:** Devon
 - **Severity:** High | **Size:** M | **Type:** Bug Fix
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/08-ticket-8-fix-type-check-oom.md
 > The TypeScript type-check phase during `pnpm run test` crashes with out-of-memory errors on systems with limited RAM, blocking CI/CD pipelines and local development. Requires optimization of type-checking configuration and/or tooling.
 
-### Ticket 9: Mobile layout — vendor name hidden behind contract badges
-- **Assignee:** —
-- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
-- **Depends On:** Ticket 3 (landed)
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/09-ticket-9-mobile-vendor-contract-badge-overflow.md
-> On small viewports (≤390px), when a vendor contract card shows both the "Source document attached" badge AND a status badge simultaneously, the vendor name `<span>` collapses to width:0 and becomes invisible.
+
