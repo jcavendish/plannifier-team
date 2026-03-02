@@ -1,10 +1,10 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
 **Status:** Done
-**Assignee:** Review: Joao
-**PR:** https://github.com/jcavendish/plannifier/pull/337
+**Assignee:** —
+**PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02)
 **Plan Status:** Approved
-**Latest Update:** QA passed — ready for review (2026-03-02)
+**Latest Update:** Merged to staging 2026-03-02T11:53Z
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor
