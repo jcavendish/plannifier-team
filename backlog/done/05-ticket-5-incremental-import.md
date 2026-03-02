@@ -1,13 +1,14 @@
 # Ticket 5: Incremental import for existing weddings
 
 **Status:** Done
-**Assignee:** Review: Joao
+**Assignee:** —
+**PR:** https://github.com/jcavendish/plannifier/pull/338 (merged)
 **Severity:** Medium
 **Size:** L
 **Type:** Feature
 **Depends On:** Tickets 1-4 (foundational)
 **Plan Status:** Approved
-**Latest Update:** QA passed (Round 2) — ready for Joao review. See PR #338
+**Latest Update:** Merged to staging 2026-03-02. QA passed Round 2 (bc25be8)
 
 ## Summary
 
