@@ -2,6 +2,7 @@
 
 **Status:** In Progress
 **Assignee:** Devon
+**Plan Status:** Awaiting Approval
 **Latest Update:** Plan ready, awaiting Joao approval (2026-03-01)
 **Severity:** Low
 **Size:** S
