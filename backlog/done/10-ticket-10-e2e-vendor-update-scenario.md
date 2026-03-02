@@ -1,11 +1,11 @@
 # Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
 
 **Status:** Done
-**Assignee:** Review: Joao
+**Assignee:** —
 **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
 **Depends On:** Ticket 6 (landed)
 **PR:** https://github.com/jcavendish/plannifier/pull/340
-**Latest Update:** QA PASS (Qamar, 2026-03-02) — 7/7 E2E pass. Ready for Joao review.
+**Latest Update:** Merged to staging 2026-03-02 (PR #340).
 
 ## Summary
 
