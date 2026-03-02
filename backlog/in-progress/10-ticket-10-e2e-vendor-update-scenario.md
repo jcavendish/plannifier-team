@@ -1,7 +1,9 @@
 # Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
 
-**Status:** Open
-**Assignee:** Devon
+**Status:** In Progress
+**Assignee:** Qamar
+**PR:** https://github.com/jcavendish/plannifier/pull/340 (draft)
+**Latest Update:** Dev complete — PR #340 open, handed to Qamar for QA
 **Severity:** Medium
 **Size:** XS
 **Type:** Bug Fix
