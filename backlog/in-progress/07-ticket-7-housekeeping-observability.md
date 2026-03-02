@@ -1,9 +1,10 @@
 # Ticket 7: Housekeeping & observability
 
 **Status:** In Progress
-**Assignee:** Devon
-**Plan Status:** Awaiting Approval
-**Latest Update:** Plan ready, awaiting Joao approval (2026-03-01)
+**Assignee:** Qamar
+**PR:** https://github.com/jcavendish/plannifier/pull/339
+**Plan Status:** Approved
+**Latest Update:** Implementation complete — PR #339 open (draft), handed to Qamar for QA (2026-03-02)
 **Severity:** Low
 **Size:** S
 **Type:** Refactor
