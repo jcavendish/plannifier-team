@@ -3,16 +3,20 @@ Updated: 2026-03-02T13:45:00.000Z
 
 ## In Progress
 
-### Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
-- **Assignee:** Qamar
-- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
-- **Depends On:** Ticket 6 (landed)
-- **PR:** https://github.com/jcavendish/plannifier/pull/340 (draft)
-- **Latest Update:** Dev complete — PR #340 open, handed to Qamar for QA (2026-03-02)
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/10-ticket-10-e2e-vendor-update-scenario.md
-> 5 E2E tests in `document-import-vendor-update.critical.spec.ts` are failing because the test helper page does not implement `?scenario=vendor-update`. As a result, vendors never receive `catalogMatch` data and the match/update badges never render — causing assertion failures on badge visibility.
+*(no active tickets)*
 
 ## Done
+
+### Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
+- **Assignee:** Review: Joao
+- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
+- **Depends On:** Ticket 6 (landed)
+- **PR:** https://github.com/jcavendish/plannifier/pull/340
+- **Latest Update:** QA PASS (Qamar, 2026-03-02) — 7/7 E2E pass. Ready for Joao review.
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/10-ticket-10-e2e-vendor-update-scenario.md
+> 5 E2E tests in `document-import-vendor-update.critical.spec.ts` fixed by adding `?scenario=vendor-update` to test helper page with `catalogMatch` data.
+
+### Ticket 5: Incremental import for existing weddings (moved here from stale entry below)
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —
@@ -44,7 +48,7 @@ Updated: 2026-03-02T13:45:00.000Z
 ### Ticket 5: Incremental import for existing weddings
 - **Assignee:** Qamar
 - **Plan Status:** Approved
-- **Latest Update:** Dev complete, awaiting QA (PR #338)
+- **Latest Update:** QA PASS (Qamar, Round 2, 2026-03-02) — ready for Joao review. PR #338
 - **Severity:** Medium | **Size:** L | **Type:** Feature
 - **Depends On:** Tickets 1-4 (foundational)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/05-ticket-5-incremental-import.md

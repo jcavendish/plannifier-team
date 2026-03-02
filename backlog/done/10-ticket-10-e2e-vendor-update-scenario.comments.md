@@ -22,3 +22,14 @@ Implementation complete on branch `fix/ticket-6-vendor-update-scenario`.
 **Build checks:** type-check ✅ lint ✅ (0 errors introduced)
 
 Handing to Qamar for QA re-run of the 5 failing specs.
+
+### Qamar — 2026-03-02 13:55
+
+**QA PASSED**
+
+- Type-check ✅ | Lint ✅ | Single test-only file changed ✅
+- `document-import-vendor-update.critical.spec.ts`: **7/7 pass** (all 5 previously-failing tests now pass)
+- `document-import-review.critical.spec.ts`: **36/36 pass** (regression clean)
+- Code review: Suspense boundary correct, fixture data matches badge semantics, dismiss handler correct
+
+Ready to merge (after PR #337 lands).

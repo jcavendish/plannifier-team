@@ -1,13 +1,13 @@
 # Ticket 5: Incremental import for existing weddings
 
 **Status:** Done
-**Assignee:** Qamar
+**Assignee:** Review: Joao
 **Severity:** Medium
 **Size:** L
 **Type:** Feature
 **Depends On:** Tickets 1-4 (foundational)
 **Plan Status:** Approved
-**Latest Update:** Dev complete, awaiting QA (PR #338)
+**Latest Update:** QA passed (Round 2) — ready for Joao review. See PR #338
 
 ## Summary
 
