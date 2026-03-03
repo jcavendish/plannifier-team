@@ -1,7 +1,8 @@
 # Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Qamar
+**PR:** https://github.com/jcavendish/plannifier/pull/341
 **Severity:** Critical
 **Size:** XS
 **Type:** Bug Fix
