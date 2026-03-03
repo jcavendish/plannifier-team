@@ -1,24 +1,29 @@
 # Board State
-Updated: 2026-03-03T11:09:43.304Z
+Updated: 2026-03-03T12:02:00.000Z
 
-## Open (assigned — ready for pickup)
+## In Progress (Devon)
 
-### Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
-- **Assignee:** Qamar
-- **Severity:** Critical | **Size:** XS | **Type:** Bug Fix
-- **PR:** https://github.com/jcavendish/plannifier/pull/341
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/12-ticket-12-rpc-schema-cache-vendor-contracts.md
-> "Create wedding" button in the import review wizard fails 100% of the time with:
+### Ticket 11: Translate vendor update field names in import review badge
+- **Assignee:** Devon
+- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
+- **Plan Status:** Awaiting Approval
+- **Latest Update:** Plan ready, awaiting approval (2026-03-03)
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/11-ticket-11-vendor-update-field-labels.md
+> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge reads "Vai atualizar: contact_person" or "Will update: phone" — raw DB column names instead of human-readable labels.
 
 ## Open (unassigned)
 
-### Ticket 11: Translate vendor update field names in import review badge
-- **Assignee:** —
-- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/11-ticket-11-vendor-update-field-labels.md
-> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge reads "Vai atualizar: contact_person" or "Will update: phone" — raw DB column names instead of human-readable labels.
+*(no active tickets)*
 
 ## Done
+
+### Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
+- **Assignee:** Review: Joao
+- **Severity:** Critical | **Size:** XS | **Type:** Bug Fix
+- **PR:** https://github.com/jcavendish/plannifier/pull/341
+- **Latest Update:** QA PASS (Qamar, Round 2, 2026-03-03) — 5/5 E2E pass. db reset clean. Exactly 1 RPC overload. Ready for Joao review.
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/12-ticket-12-rpc-schema-cache-vendor-contracts.md
+> "Create wedding" button in the import review wizard fails 100% of the time with RPC schema cache error. Fixed by new migration 20260227210000 dropping the 10-param overload before vendor-contracts migration runs; 20260302120000 drops all overloads and recreates canonical 11-param version.
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —

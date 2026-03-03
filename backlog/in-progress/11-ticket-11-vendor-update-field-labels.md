@@ -1,11 +1,13 @@
 # Ticket 11: Translate vendor update field names in import review badge
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
 **Severity:** Low
 **Size:** XS
 **Type:** Bug Fix
 **Depends On:** —
+**Plan Status:** Awaiting Approval
+**Latest Update:** Plan ready, awaiting approval (2026-03-03)
 
 ## Summary
 
