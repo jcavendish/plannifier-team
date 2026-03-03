@@ -1,63 +1,97 @@
-**Status:** Done
-**Assignee:** Review: Joao
-**Severity:** Critical | **Size:** XS | **Type:** Bug Fix
-**PR:** https://github.com/jcavendish/plannifier/pull/341
-**Latest Update:** QA PASS (Qamar, Round 2, 2026-03-03) — 5/5 E2E pass. db reset clean. Ready for Joao review.
-
----
-
 # Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
 
-## Problem
+**Status:** Done
+**Assignee:** —
+**PR:** https://github.com/jcavendish/plannifier/pull/341
+**Severity:** Critical
+**Size:** XS
+**Type:** Bug Fix
+**Depends On:** —
+
+## Summary
 
 "Create wedding" button in the import review wizard fails 100% of the time with:
+
 ```
 RPC create_wedding_from_import failed: Could not find the function
-public.create_wedding_from_import(...p_vendor_contracts...) in the schema cache
+public.create_wedding_from_import(p_budget_items, p_client, p_guest_groups,
+p_meal_options, p_phases, p_planner_id, p_tasks, p_timeline, p_vendor_contracts,
+p_vendors, p_wedding) in the schema cache
 ```
+
+The import feature cannot create weddings. This is a complete blocker.
 
 ## Root Cause
 
-`CREATE OR REPLACE FUNCTION` with a different parameter count creates a new overloaded function, not a replacement. After migration `20260228100000` added `p_vendor_contracts`, two overloads coexisted in the DB:
-- 10-param (from `20260227200000` — installments)
-- 11-param (from `20260228100000` — vendor contracts)
+PostgreSQL `CREATE OR REPLACE FUNCTION` with a **different parameter list** creates a new
+overloaded function — it does **not** replace the existing one.
 
-PostgREST could not unambiguously resolve the correct overload → schema cache error → 500.
+Migration chain:
+1. `20260227200000_add_installments_to_import_rpc.sql` — defines function with **10 params** (no `p_vendor_contracts`)
+2. `20260228100000_add_vendor_contracts_to_import_rpc.sql` — calls `CREATE OR REPLACE FUNCTION` with **11 params** (adds `p_vendor_contracts`)
 
-On a fresh `db reset`, `20260228100000` also failed because its `COMMENT ON FUNCTION` (without parameter types) raises `42725` when two overloads exist — halting the reset before `20260302120000` could run.
+Result: DB now has **two overloaded versions** of `create_wedding_from_import`:
+- v1: 10 params (no `p_vendor_contracts`)
+- v2: 11 params (with `p_vendor_contracts`)
+
+PostgREST resolves named-parameter RPC calls via its schema cache. When the Supabase API service starts, it caches the known function signatures. If the cache was built before v2 was created — or if the multiple overloads cause resolution ambiguity — PostgREST cannot find the correct function and throws the "not found in schema cache" error.
+
+## Why QA Didn't Catch It
+
+The E2E test for `create_wedding_from_import` (`document-import-review.critical.spec.ts`)
+tests the full review UI flow but mocks the API response at the network layer — it does not
+call the actual Supabase RPC in the test environment. The overloading issue only surfaces
+against a live Supabase instance where PostgREST is running.
+
+This is a gap in test coverage: no integration test verifies the RPC is callable end-to-end
+against a real Supabase instance. That's a known tradeoff for E2E tests that use network mocks.
 
 ## Fix
 
-Three migrations in the chain:
-1. **`20260227210000_drop_10param_rpc_overload.sql`** (new) — drops the 10-param overload before `20260228100000` runs, so the COMMENT ON FUNCTION succeeds
-2. **`20260228100000_add_vendor_contracts_to_import_rpc.sql`** — unchanged, now runs cleanly
-3. **`20260302120000_fix_rpc_drop_old_overloads.sql`** — drops all known overloads, creates canonical 11-param version, calls `NOTIFY pgrst, 'reload schema'`
+Two-part fix:
 
-Also added RPC overload discipline rule to `CLAUDE.md`.
+### Part 1 — Hotfix migration (immediate)
 
-## QA Results
+Drop ALL existing overloads of `create_wedding_from_import` before recreating the canonical
+11-parameter version. This removes the ambiguity and forces PostgREST to learn only one signature.
 
-### Round 1 (2026-03-03) — FAIL
-- `db reset` failed at `20260228100000` — COMMENT ON FUNCTION raised 42725
-- `20260302120000` never ran
-- Returned to Devon with: add `20260227210000` to drop 10-param overload first
+**File:** `supabase/migrations/YYYYMMDDHHMMSS_fix_rpc_drop_old_overloads.sql`
 
-### Round 2 (2026-03-03) — PASS ✅
-After commits `d77b33c` (add `20260227210000`) and `f5f1178` (`extensions.gen_random_bytes` fix):
+```sql
+-- Drop all existing overloads to eliminate PostgREST resolution ambiguity
+DROP FUNCTION IF EXISTS public.create_wedding_from_import(UUID, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB);
+DROP FUNCTION IF EXISTS public.create_wedding_from_import(UUID, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB);
 
-**Migration verification:**
-- `db reset` completes without error ✅
-- `SELECT count(*) FROM pg_proc WHERE proname = 'create_wedding_from_import'` → 1 ✅
+-- Then: CREATE OR REPLACE with the canonical 11-param signature (copy from 20260228100000)
+```
 
-**API flows (5/5 pass):**
-- Flow 1: Full payload with vendor_contracts → HTTP 200 + weddingId ✅
-- Flow 2: Minimal payload (couple only) → HTTP 200 + weddingId ✅
-- Flow 3: Unauthenticated → HTTP 401 ✅
-- Flow 4: Import in 'creating' state → HTTP 409 ✅
-- Flow 5: Malformed payload → HTTP 400 ✅
+After applying the migration, also signal PostgREST to reload its schema cache:
+```sql
+NOTIFY pgrst, 'reload schema';
+```
 
-**Static analysis:**
-- Lint: 0 errors (86 pre-existing warnings, unchanged from staging) ✅
-- Type-check: 0 errors ✅
+### Part 2 — Future migrations discipline
 
-**E2E test added:** `tests/document-import-create-wedding.critical.spec.ts` — 5 tests covering the real API endpoint (no mocks).
+Every future migration that changes the RPC signature MUST drop old overloads first:
+```sql
+-- Always drop old overloads before redefining
+DROP FUNCTION IF EXISTS public.create_wedding_from_import(UUID, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB, JSONB);
+CREATE OR REPLACE FUNCTION public.create_wedding_from_import(...new signature...)
+```
+
+Document this in `CLAUDE.md` under migration discipline.
+
+## Immediate Workaround (while fix is deployed)
+
+On Supabase Cloud dashboard: **Settings → API → Reload schema cache** (or restart API service).
+This may temporarily resolve the cache issue without a migration, but the overload ambiguity
+will persist until Part 1 is applied.
+
+## Files to Change
+
+- New migration `supabase/migrations/YYYYMMDDHHMMSS_fix_rpc_drop_old_overloads.sql`
+- `frontend/CLAUDE.md` — add note under migrations: DROP old overloads before CREATE OR REPLACE
+
+## Complexity
+
+XS — migration only, no application code changes.
