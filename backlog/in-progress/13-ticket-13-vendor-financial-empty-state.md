@@ -1,7 +1,7 @@
 # Ticket 13: Fix vendor financial empty state not rendering
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Qamar
 **Severity:** Medium
 **Size:** S
 **Type:** Bug Fix
