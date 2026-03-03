@@ -1,14 +1,14 @@
 # Ticket 11: Translate vendor update field names in import review badge
 
-**Status:** In Progress
-**Assignee:** Qamar
+**Status:** Done
+**Assignee:** Review: Joao
 **Severity:** Low
 **Size:** XS
 **Type:** Bug Fix
 **Depends On:** —
 **Plan Status:** Approved
 **PR:** https://github.com/jcavendish/plannifier/pull/342
-**Latest Update:** Dev complete (2026-03-03 16:15). Draft PR #342 open. Handed off to Qamar for QA.
+**Latest Update:** QA passed (Qamar, 2026-03-03) — code review + i18n verification. Build clean, all flows correct. Ready for Joao review.
 
 ## Summary
 

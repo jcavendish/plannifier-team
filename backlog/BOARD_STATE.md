@@ -1,19 +1,21 @@
 # Board State
-Updated: 2026-03-03T16:15:00.000Z
+Updated: 2026-03-03T17:16:00.000Z
 
 ## In Progress
 
-### Ticket 11: Translate vendor update field names in import review badge
-- **Assignee:** Qamar
-- **Plan Status:** Approved
-- **PR:** https://github.com/jcavendish/plannifier/pull/342
-- **Latest Update:** Dev complete (2026-03-03 16:15). Draft PR #342 open. Awaiting QA.
-- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/11-ticket-11-vendor-update-field-labels.md
-- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/11-ticket-11-vendor-update-field-labels.comments.md
-> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge reads "Vai atualizar: contact_person" or "Will update: phone" — raw DB column names instead of human-readable labels.
+*(no active tickets)*
 
 ## Done
+
+### Ticket 11: Translate vendor update field names in import review badge
+- **Assignee:** Review: Joao
+- **Plan Status:** Approved
+- **PR:** https://github.com/jcavendish/plannifier/pull/342
+- **Latest Update:** QA passed (Qamar, 2026-03-03) — code review + i18n verification. Build clean, all flows correct. Ready for Joao review.
+- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/11-ticket-11-vendor-update-field-labels.md
+- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/done/11-ticket-11-vendor-update-field-labels.comments.md
+> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge now shows human-readable labels ("Phone, Service category") instead of raw DB column names ("phone, service_category").
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —
