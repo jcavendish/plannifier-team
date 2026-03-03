@@ -1,22 +1,24 @@
 # Board State
-Updated: 2026-03-02T13:45:00.000Z
+Updated: 2026-03-03T11:09:43.304Z
 
-## In Progress
+## Open (assigned — ready for pickup)
 
-*(no active tickets)*
+### Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
+- **Assignee:** Qamar
+- **Severity:** Critical | **Size:** XS | **Type:** Bug Fix
+- **PR:** https://github.com/jcavendish/plannifier/pull/341
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/12-ticket-12-rpc-schema-cache-vendor-contracts.md
+> "Create wedding" button in the import review wizard fails 100% of the time with:
+
+## Open (unassigned)
+
+### Ticket 11: Translate vendor update field names in import review badge
+- **Assignee:** —
+- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/11-ticket-11-vendor-update-field-labels.md
+> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge reads "Vai atualizar: contact_person" or "Will update: phone" — raw DB column names instead of human-readable labels.
 
 ## Done
-
-### Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
-- **Assignee:** Review: Joao
-- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
-- **Depends On:** Ticket 6 (landed)
-- **PR:** https://github.com/jcavendish/plannifier/pull/340
-- **Latest Update:** QA PASS (Qamar, 2026-03-02) — 7/7 E2E pass. Ready for Joao review.
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/10-ticket-10-e2e-vendor-update-scenario.md
-> 5 E2E tests in `document-import-vendor-update.critical.spec.ts` fixed by adding `?scenario=vendor-update` to test helper page with `catalogMatch` data.
-
-### Ticket 5: Incremental import for existing weddings (moved here from stale entry below)
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —
@@ -46,11 +48,12 @@ Updated: 2026-03-02T13:45:00.000Z
 > When planner import detects existing vendor (by email/phone/name), update empty fields instead of skipping. Adopt admin import's 3-action model: create (new), update (fill gaps), match (no change).
 
 ### Ticket 5: Incremental import for existing weddings
-- **Assignee:** Qamar
+- **Assignee:** —
 - **Plan Status:** Approved
-- **Latest Update:** QA PASS (Qamar, Round 2, 2026-03-02) — ready for Joao review. PR #338
+- **Latest Update:** Merged to staging 2026-03-02. QA passed Round 2 (bc25be8)
 - **Severity:** Medium | **Size:** L | **Type:** Feature
 - **Depends On:** Tickets 1-4 (foundational)
+- **PR:** https://github.com/jcavendish/plannifier/pull/338 (merged)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/05-ticket-5-incremental-import.md
 > Enable per-section import into existing weddings. Currently, import only creates new weddings. Planners need to backfill missing data into manually-created weddings (guests, vendors, budgets). Includes preview/diff mode showing what will create/update/skip before committing.
 
@@ -87,3 +90,12 @@ Updated: 2026-03-02T13:45:00.000Z
 - **PR:** https://github.com/jcavendish/plannifier/pull/336 (merged 2026-03-02)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/09-ticket-9-mobile-vendor-contract-badge-overflow.md
 > On small viewports (≤390px), when a vendor contract card shows both the "Source document attached" badge AND a status badge simultaneously, the vendor name `<span>` collapses to width:0 and becomes invisible.
+
+### Ticket 10: Fix E2E — missing `?scenario=vendor-update` on test page
+- **Assignee:** —
+- **Latest Update:** Merged to staging 2026-03-02 (PR #340).
+- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
+- **Depends On:** Ticket 6 (landed)
+- **PR:** https://github.com/jcavendish/plannifier/pull/340
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/10-ticket-10-e2e-vendor-update-scenario.md
+> 5 E2E tests in `document-import-vendor-update.critical.spec.ts` were failing because the test helper page does not implement `?scenario=vendor-update`. As a result, vendors never receive `catalogMatch` data and the match/update badges never render — causing assertion failures on badge visibility.
