@@ -1,13 +1,16 @@
 # Board State
 Updated: 2026-03-04T10:40:12.699Z
 
-## Open (unassigned)
+## In Progress
 
 ### Ticket 14: No user feedback after wedding creation
-- **Assignee:** —
+- **Assignee:** Devon
+- **Plan Status:** Awaiting Approval
 - **Severity:** High | **Size:** XS | **Type:** Bug Fix
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/14-ticket-14-no-feedback-after-wedding-creation.md
-> After clicking "Create Wedding" in the import review wizard, the button stops loading but nothing else happens — no success toast, no navigation to the new wedding. The wedding may actually be created in the database but the user has no way to know or reach it.
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.md
+> "Create Wedding" button stops loading with no toast and no navigation. Root cause: client only fires success feedback if `result.data?.weddingId` is truthy; empty string is falsy.
+
+## Open (unassigned)
 
 ### Ticket 15: Import rate limiting — 429 on concurrent file classification
 - **Assignee:** —

@@ -1,7 +1,9 @@
 # Ticket 14: No user feedback after wedding creation
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
+**Plan Status:** Awaiting Approval
+**Latest Update:** Plan ready, awaiting approval
 **Severity:** High
 **Size:** XS
 **Type:** Bug Fix
