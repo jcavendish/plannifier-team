@@ -7,12 +7,14 @@
 **Type:** Bug Fix
 **Depends On:** —
 **Plan Status:** Approved
-**PR:** https://github.com/jcavendish/plannifier/pull/345
-**Latest Update:** PR #345 open, ready to merge — awaiting Joao approval
+**PR:** https://github.com/jcavendish/plannifier/pull/346 (supersedes #345)
+**Latest Update:** PR #345 merged but CI still failed — backend/node_modules was the same problem. PR #346 removes it. Awaiting immediate merge.
 
 ## Summary
 
-Every staging deploy has been failing since Feb 26 (the entire sprint). No code or migrations have reached the staging environment. Root cause: a broken symlink `api/node_modules` was accidentally committed to git.
+Every staging deploy has been failing since Feb 26 (the entire sprint). No code or migrations have reached the staging environment. Root cause: broken symlinks `api/node_modules` **and** `backend/node_modules` were accidentally committed to git.
+
+PR #345 removed `api/node_modules` — CI then failed on `backend/node_modules` (same issue). PR #346 removes `backend/node_modules`. Zero committed symlinks remain after #346.
 
 ## Problem
 
