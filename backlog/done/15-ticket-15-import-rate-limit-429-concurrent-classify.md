@@ -1,9 +1,9 @@
 # Ticket 15: Import rate limiting — 429 on concurrent file classification
 
-**Status:** In Progress
-**Assignee:** Devon
+**Status:** Done
+**Assignee:** Review: Joao
 **PR:** https://github.com/jcavendish/plannifier/pull/348
-**Latest Update:** Implementation complete, PR #348 open as draft. Awaiting Qamar QA.
+**Latest Update:** QA passed — Qamar 2026-03-04. Serialization fix verified, 52/52 existing tests pass, budget items + installments write correctly. vendorContracts:0 confirmed as Ticket 16 (not caused by T15). New E2E test added: document-import-rate-limit.critical.spec.ts
 **Severity:** High
 **Size:** S
 **Type:** Bug Fix

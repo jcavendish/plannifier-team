@@ -1,12 +1,12 @@
 # Board State
-Updated: 2026-03-04T13:10:00.000Z
+Updated: 2026-03-04T15:10:00.000Z
 
 ## Open (unassigned)
 
 ### Ticket 16: Vendor contracts not extracted — import review shows empty contracts tab
 - **Assignee:** —
 - **Severity:** High | **Size:** S | **Type:** Bug Fix
-- **Depends On:** Ticket 15 (rate limit fix — in PR #348)
+- **Depends On:** Ticket 15 (rate limit fix — PR #348 merged)
 - **File:** backlog/open/16-ticket-16-vendor-contracts-not-extracted-in-import.md
 > Import review screen shows 0 vendor contracts even when source documents clearly contain contract data. Suspected root cause: 429 rate limit (Ticket 15) aborts extraction before contracts are parsed. Re-verify after Ticket 15 merges.
 
@@ -19,19 +19,19 @@ Updated: 2026-03-04T13:10:00.000Z
 
 ## In Progress
 
-### Ticket 15: Import rate limiting — 429 on concurrent file classification
-- **Assignee:** Devon
-- **Plan Status:** Approved
-- **Latest Update:** Implementation complete, PR #348 open as draft. Qamar QA in progress.
-- **Severity:** High | **Size:** S | **Type:** Bug Fix
-- **PR:** https://github.com/jcavendish/plannifier/pull/348 (draft — awaiting Qamar QA)
-- **File:** backlog/in-progress/15-ticket-15-import-rate-limit-429-concurrent-classify.md
+*(no active tickets)*
 
 ## Done
 
+### Ticket 15: Import rate limiting — 429 on concurrent file classification ✅
+- **Assignee:** Review: Joao
+- **PR:** https://github.com/jcavendish/plannifier/pull/348
+- **Latest Update:** QA passed — Qamar 2026-03-04. Serialization fix verified, 52/52 existing tests pass, new E2E test added. Ready for Joao review.
+- **File:** backlog/done/15-ticket-15-import-rate-limit-429-concurrent-classify.md
+
 ### Ticket 14: No user feedback after wedding creation ✅
-- PR #344 merged 2026-03-04, staging deployed — CI run 22670561414 passed (Quality Checks ✅ + Deploy ✅)
-- File: backlog/done/14-ticket-14-no-feedback-after-wedding-creation.md
+- **PR:** #344 merged 2026-03-04, staging deployed (CI ✅)
+- **File:** backlog/done/14-ticket-14-no-feedback-after-wedding-creation.md
 
 ### Ticket 18: Fix staging CI deploy pipeline ✅
 - PRs #345 (api symlink), #346 (backend symlink), #347 (type-check OOM) — all merged 2026-03-04
