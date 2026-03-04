@@ -7,14 +7,19 @@
 **Type:** Bug Fix
 **Depends On:** —
 **Plan Status:** Approved
-**PR:** https://github.com/jcavendish/plannifier/pull/346 (supersedes #345)
-**Latest Update:** PR #345 merged but CI still failed — backend/node_modules was the same problem. PR #346 removes it. Awaiting immediate merge.
+**PR:** https://github.com/jcavendish/plannifier/pull/347 (supersedes #345, #346)
+**Latest Update:** #345→#346 fixed symlink issues. #347 fixes type-check OOM (Node heap limit). This should be the final CI blocker. Awaiting immediate merge.
 
 ## Summary
 
 Every staging deploy has been failing since Feb 26 (the entire sprint). No code or migrations have reached the staging environment. Root cause: broken symlinks `api/node_modules` **and** `backend/node_modules` were accidentally committed to git.
 
-PR #345 removed `api/node_modules` — CI then failed on `backend/node_modules` (same issue). PR #346 removes `backend/node_modules`. Zero committed symlinks remain after #346.
+Three CI blockers found in sequence:
+1. `api/node_modules` committed symlink → fixed by PR #345
+2. `backend/node_modules` committed symlink → fixed by PR #346
+3. TypeScript type-check OOM (Node.js heap limit) → fixed by PR #347 (root `.npmrc` + explicit `NODE_OPTIONS` in CI)
+
+Zero committed symlinks remain. #347 should be the final fix.
 
 ## Problem
 
