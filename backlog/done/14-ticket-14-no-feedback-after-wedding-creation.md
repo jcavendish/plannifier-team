@@ -1,9 +1,9 @@
 # Ticket 14: No user feedback after wedding creation
 
-**Status:** In Progress — Awaiting Merge
-**Assignee:** Review: Joao
+**Status:** Done
+**Assignee:** Devon
 **Plan Status:** Approved
-**Latest Update:** QA passed (Qamar, 2026-03-04) — all acceptance criteria met, 4/4 E2E pass. Ready for Joao review.
+**Latest Update:** Merged (PR #344) and deployed to staging 2026-03-04. CI run 22670561414 — Quality Checks ✅ + Deploy to Staging ✅.
 **PR:** https://github.com/jcavendish/plannifier/pull/344
 **Severity:** High
 **Size:** XS
