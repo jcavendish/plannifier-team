@@ -1,6 +1,6 @@
 # Ticket 18: Fix staging CI deploy — committed api/node_modules symlink breaks pnpm install
 
-**Status:** In Progress
+**Status:** Done
 **Assignee:** Devon
 **Severity:** Critical
 **Size:** XS

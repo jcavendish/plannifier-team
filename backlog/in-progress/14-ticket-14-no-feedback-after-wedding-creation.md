@@ -1,6 +1,6 @@
 # Ticket 14: No user feedback after wedding creation
 
-**Status:** Done
+**Status:** In Progress — Awaiting Merge
 **Assignee:** Review: Joao
 **Plan Status:** Approved
 **Latest Update:** QA passed (Qamar, 2026-03-04) — all acceptance criteria met, 4/4 E2E pass. Ready for Joao review.

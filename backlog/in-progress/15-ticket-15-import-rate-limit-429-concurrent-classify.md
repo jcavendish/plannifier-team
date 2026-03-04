@@ -1,7 +1,9 @@
 # Ticket 15: Import rate limiting — 429 on concurrent file classification
 
-**Status:** Open
-**Assignee:** —
+**Status:** In Progress
+**Assignee:** Devon
+**PR:** https://github.com/jcavendish/plannifier/pull/348
+**Latest Update:** Implementation complete, PR #348 open as draft. Awaiting Qamar QA.
 **Severity:** High
 **Size:** S
 **Type:** Bug Fix
