@@ -1,10 +1,10 @@
 # Ticket 6: Review UI redesign — swipable per-type cards
 
 **Status:** Done (merged — follow-up required)
-**Assignee:** Devon (follow-up: add ?scenario=vendor-update to test page)
+**Assignee:** —
 **PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02T11:53Z)
 **Plan Status:** Approved
-**Latest Update:** QA re-test complete 2026-03-02 — 58/63 pass, 5 failures need follow-up fix
+**Latest Update:** Fully resolved — Ticket 10 (PR #340, merged 2026-03-02) fixed the 5 remaining `document-import-vendor-update` failures. 63/63 E2E pass.
 **Severity:** Medium
 **Size:** M
 **Type:** Refactor

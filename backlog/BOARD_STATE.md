@@ -1,33 +1,33 @@
 # Board State
-Updated: 2026-03-04T10:30:00.000Z
+Updated: 2026-03-04T10:40:12.699Z
 
-## Open
+## Open (unassigned)
 
 ### Ticket 14: No user feedback after wedding creation
 - **Assignee:** —
 - **Severity:** High | **Size:** XS | **Type:** Bug Fix
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/14-ticket-14-no-feedback-after-wedding-creation.md
-> "Create Wedding" button stops loading with no toast and no navigation. Root cause: client only fires success feedback if `result.data?.weddingId` is truthy; empty string is falsy.
+> After clicking "Create Wedding" in the import review wizard, the button stops loading but nothing else happens — no success toast, no navigation to the new wedding. The wedding may actually be created in the database but the user has no way to know or reach it.
 
 ### Ticket 15: Import rate limiting — 429 on concurrent file classification
 - **Assignee:** —
 - **Severity:** High | **Size:** S | **Type:** Bug Fix
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/15-ticket-15-import-rate-limit-429-concurrent-classify.md
-> Two concurrent classify calls exhaust the 50K input tokens/min limit. Fixed backoff with no jitter causes synchronized retries. Fix: serialize (MAX_CONCURRENCY=1) + use retry-after header + add jitter.
+> When importing multiple files, the classify step fails with HTTP 429 (rate limit exceeded). Both concurrent classify calls hit the Anthropic API simultaneously, exhaust the 50K input tokens/minute org limit together, and then retry at the same time — causing repeated failures and degraded/failed imports.
 
 ### Ticket 16: Vendor contracts not extracted — import review shows empty contracts tab
 - **Assignee:** —
 - **Severity:** High | **Size:** S | **Type:** Bug Fix
-- **Depends On:** Ticket 15
+- **Depends On:** Ticket 15 (rate limit fix)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/16-ticket-16-vendor-contracts-not-extracted-in-import.md
-> Vendor contracts tab shows 0 entries after importing contract PDFs. Primary cause: classify fails with 429 (Ticket 15) so document never gets extracted. Secondary: possible LLM extraction quality issue.
+> When importing vendor contract documents (PDFs with contract details, dates, service terms), the import review screen shows 0 vendor contracts in the "Vendor Contracts" tab — even though the documents clearly contain contract information.
 
 ### Ticket 17: Source documents not linked to wedding after import creation
 - **Assignee:** —
 - **Severity:** Medium | **Size:** L | **Type:** Feature
-- **Depends On:** Tickets 14, 15, 16
+- **Depends On:** Tickets 14, 15, 16 (import pipeline stable)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/17-ticket-17-source-documents-not-linked-to-wedding.md
-> Uploaded PDFs are not copied to wedding storage or linked to vendors/budget items after wedding creation. No documents tab in wedding UI. Incomplete work from Ticket 3. Needs scoping before implementation.
+> When a wedding is created from an import, the original uploaded PDF/document files are not attached to the wedding, vendors, or budget items. Planners lose the connection between the raw source documents and the entities that were created from them. There is also no UI to review or manage attached documents inside a wedding.
 
 ## Done
 
@@ -69,9 +69,9 @@ Updated: 2026-03-04T10:30:00.000Z
 > Enable per-section import into existing weddings. Currently, import only creates new weddings. Planners need to backfill missing data into manually-created weddings (guests, vendors, budgets). Includes preview/diff mode showing what will create/update/skip before committing.
 
 ### Ticket 6: Review UI redesign — swipable per-type cards
-- **Assignee:** Devon (follow-up: add ?scenario=vendor-update to test page)
+- **Assignee:** —
 - **Plan Status:** Approved
-- **Latest Update:** QA re-test complete 2026-03-02 — 58/63 pass, 5 failures need follow-up fix
+- **Latest Update:** Fully resolved — Ticket 10 fixed the 5 remaining E2E failures. 63/63 pass.
 - **Severity:** Medium | **Size:** M | **Type:** Refactor
 - **Depends On:** Tickets 2-3 (schema expansion)
 - **PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02T11:53Z)
