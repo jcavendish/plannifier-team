@@ -1,14 +1,5 @@
 # Board State
-Updated: 2026-03-04T10:40:12.699Z
-
-## In Progress
-
-### Ticket 14: No user feedback after wedding creation
-- **Assignee:** Devon
-- **Plan Status:** Awaiting Approval
-- **Severity:** High | **Size:** XS | **Type:** Bug Fix
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.md
-> "Create Wedding" button stops loading with no toast and no navigation. Root cause: client only fires success feedback if `result.data?.weddingId` is truthy; empty string is falsy.
+Updated: 2026-03-04T10:53:11.014Z
 
 ## Open (unassigned)
 
@@ -31,6 +22,18 @@ Updated: 2026-03-04T10:40:12.699Z
 - **Depends On:** Tickets 14, 15, 16 (import pipeline stable)
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/17-ticket-17-source-documents-not-linked-to-wedding.md
 > When a wedding is created from an import, the original uploaded PDF/document files are not attached to the wedding, vendors, or budget items. Planners lose the connection between the raw source documents and the entities that were created from them. There is also no UI to review or manage attached documents inside a wedding.
+
+## In Progress
+
+### Ticket 14: No user feedback after wedding creation
+- **Assignee:** Devon
+- **Plan Status:** Awaiting Approval
+- **Latest Update:** Plan ready, awaiting approval
+- **Severity:** High | **Size:** XS | **Type:** Bug Fix
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.md
+- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.comments.md
+- **Last Comment (Devon, 2026-03-04 10:48):** Started Ticket 14. Read all relevant code: `ImportReviewPageClient.tsx`, `wedding-creator.ts`, `create-wedding/route.ts`, `extraction-schemas.ts`. Root cause confirmed: success path in `ImportRevie...
+> After clicking "Create Wedding" in the import review wizard, the button stops loading but nothing else happens — no success toast, no navigation to the new wedding. The wedding may actually be created in the database but the user has no way to know or reach it.
 
 ## Done
 
@@ -74,7 +77,7 @@ Updated: 2026-03-04T10:40:12.699Z
 ### Ticket 6: Review UI redesign — swipable per-type cards
 - **Assignee:** —
 - **Plan Status:** Approved
-- **Latest Update:** Fully resolved — Ticket 10 fixed the 5 remaining E2E failures. 63/63 pass.
+- **Latest Update:** Fully resolved — Ticket 10 (PR #340, merged 2026-03-02) fixed the 5 remaining `document-import-vendor-update` failures. 63/63 E2E pass.
 - **Severity:** Medium | **Size:** M | **Type:** Refactor
 - **Depends On:** Tickets 2-3 (schema expansion)
 - **PR:** https://github.com/jcavendish/plannifier/pull/337 (merged 2026-03-02T11:53Z)

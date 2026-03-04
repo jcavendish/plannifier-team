@@ -1,9 +1,11 @@
 # Ticket 14: No user feedback after wedding creation
 
 **Status:** In Progress
-**Assignee:** Devon
-**Plan Status:** Awaiting Approval
-**Latest Update:** Plan ready, awaiting approval
+**Assignee:** Qamar
+**Plan Status:** Approved
+**Latest Update:** PR #344 open, assigned to Qamar for QA
+**PR:** https://github.com/jcavendish/plannifier/pull/344
+**Assignee:** Qamar
 **Severity:** High
 **Size:** XS
 **Type:** Bug Fix
