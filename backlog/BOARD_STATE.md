@@ -1,5 +1,5 @@
 # Board State
-Updated: 2026-03-04T11:38:00.696Z
+Updated: 2026-03-04T12:11:00.000Z
 
 ## Open (unassigned)
 
@@ -32,17 +32,6 @@ Updated: 2026-03-04T11:38:00.696Z
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/18-ticket-18-fix-ci-staging-deploy.md
 > Every staging deploy since Feb 26 has failed. api/node_modules was accidentally committed as a broken symlink. Fix: git rm it + .gitignore. One-line fix that unblocks all pending deployments.
 
-### Ticket 14: No user feedback after wedding creation
-- **Assignee:** Qamar
-- **Plan Status:** Approved
-- **Latest Update:** PR #344 open, assigned to Qamar for QA
-- **Severity:** High | **Size:** XS | **Type:** Bug Fix
-- **PR:** https://github.com/jcavendish/plannifier/pull/344
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.md
-- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/in-progress/14-ticket-14-no-feedback-after-wedding-creation.comments.md
-- **Last Comment (Devon, 2026-03-04 11:00):** Implementation complete. PR #344 open as draft targeting staging. Changes:
-> After clicking "Create Wedding" in the import review wizard, the button stops loading but nothing else happens — no success toast, no navigation to the new wedding. The wedding may actually be created in the database but the user has no way to know or reach it.
-
 ### Ticket 18: Fix staging CI deploy — committed api/node_modules symlink breaks pnpm install
 - **Assignee:** Devon
 - **Plan Status:** Approved
@@ -52,6 +41,16 @@ Updated: 2026-03-04T11:38:00.696Z
 > Every staging deploy has been failing since Feb 26 (the entire sprint). No code or migrations have reached the staging environment. Root cause: a broken symlink `api/node_modules` was accidentally committed to git.
 
 ## Done
+
+### Ticket 14: No user feedback after wedding creation
+- **Assignee:** Review: Joao
+- **Plan Status:** Approved
+- **Latest Update:** QA passed (Qamar, 2026-03-04) — all acceptance criteria met, 4/4 E2E pass. Ready for Joao review.
+- **Severity:** High | **Size:** XS | **Type:** Bug Fix
+- **PR:** https://github.com/jcavendish/plannifier/pull/344
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/14-ticket-14-no-feedback-after-wedding-creation.md
+- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/done/14-ticket-14-no-feedback-after-wedding-creation.comments.md
+> After clicking "Create Wedding" in the import review wizard, the button stops loading but nothing else happens — no success toast, no navigation to the new wedding.
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —

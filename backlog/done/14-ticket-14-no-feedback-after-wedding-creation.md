@@ -1,11 +1,10 @@
 # Ticket 14: No user feedback after wedding creation
 
-**Status:** In Progress
-**Assignee:** Qamar
+**Status:** Done
+**Assignee:** Review: Joao
 **Plan Status:** Approved
-**Latest Update:** PR #344 open, assigned to Qamar for QA
+**Latest Update:** QA passed (Qamar, 2026-03-04) — all acceptance criteria met, 4/4 E2E pass. Ready for Joao review.
 **PR:** https://github.com/jcavendish/plannifier/pull/344
-**Assignee:** Qamar
 **Severity:** High
 **Size:** XS
 **Type:** Bug Fix
@@ -42,10 +41,10 @@ Additionally, even if the API returns a 200 with a valid `weddingId`, there's no
 
 ## Acceptance Criteria
 
-- [ ] Clicking "Create Wedding" always results in visible feedback (success or error) — never silent
-- [ ] On success, user is navigated to the newly created wedding page
-- [ ] If navigation target is unavailable, user is sent to weddings list with a success toast
-- [ ] Error case shows an error toast with a human-readable message
+- [x] Clicking "Create Wedding" always results in visible feedback (success or error) — never silent
+- [x] On success, user is navigated to the newly created wedding page
+- [x] If navigation target is unavailable, user is sent to weddings list with a success toast
+- [x] Error case shows an error toast with a human-readable message
 
 ## Files
 
@@ -55,4 +54,4 @@ Additionally, even if the API returns a 200 with a valid `weddingId`, there's no
 
 ## Latest Update
 
-Open, not yet assigned.
+QA passed (Qamar, 2026-03-04). See comments file for full test results.
