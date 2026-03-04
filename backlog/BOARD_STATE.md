@@ -1,21 +1,35 @@
 # Board State
-Updated: 2026-03-03T17:16:00.000Z
+Updated: 2026-03-04T10:30:00.000Z
 
-## In Progress
+## Open
 
-*(no active tickets)*
+### Ticket 14: No user feedback after wedding creation
+- **Assignee:** —
+- **Severity:** High | **Size:** XS | **Type:** Bug Fix
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/14-ticket-14-no-feedback-after-wedding-creation.md
+> "Create Wedding" button stops loading with no toast and no navigation. Root cause: client only fires success feedback if `result.data?.weddingId` is truthy; empty string is falsy.
+
+### Ticket 15: Import rate limiting — 429 on concurrent file classification
+- **Assignee:** —
+- **Severity:** High | **Size:** S | **Type:** Bug Fix
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/15-ticket-15-import-rate-limit-429-concurrent-classify.md
+> Two concurrent classify calls exhaust the 50K input tokens/min limit. Fixed backoff with no jitter causes synchronized retries. Fix: serialize (MAX_CONCURRENCY=1) + use retry-after header + add jitter.
+
+### Ticket 16: Vendor contracts not extracted — import review shows empty contracts tab
+- **Assignee:** —
+- **Severity:** High | **Size:** S | **Type:** Bug Fix
+- **Depends On:** Ticket 15
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/16-ticket-16-vendor-contracts-not-extracted-in-import.md
+> Vendor contracts tab shows 0 entries after importing contract PDFs. Primary cause: classify fails with 429 (Ticket 15) so document never gets extracted. Secondary: possible LLM extraction quality issue.
+
+### Ticket 17: Source documents not linked to wedding after import creation
+- **Assignee:** —
+- **Severity:** Medium | **Size:** L | **Type:** Feature
+- **Depends On:** Tickets 14, 15, 16
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/open/17-ticket-17-source-documents-not-linked-to-wedding.md
+> Uploaded PDFs are not copied to wedding storage or linked to vendors/budget items after wedding creation. No documents tab in wedding UI. Incomplete work from Ticket 3. Needs scoping before implementation.
 
 ## Done
-
-### Ticket 11: Translate vendor update field names in import review badge
-- **Assignee:** Review: Joao
-- **Plan Status:** Approved
-- **PR:** https://github.com/jcavendish/plannifier/pull/342
-- **Latest Update:** QA passed (Qamar, 2026-03-03) — code review + i18n verification. Build clean, all flows correct. Ready for Joao review.
-- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
-- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/11-ticket-11-vendor-update-field-labels.md
-- **Comments:** /home/jcavendish/workspace/plannifier-team/backlog/done/11-ticket-11-vendor-update-field-labels.comments.md
-> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge now shows human-readable labels ("Phone, Service category") instead of raw DB column names ("phone, service_category").
 
 ### Ticket 1: Prompt quality — extraction accuracy fixes
 - **Assignee:** —
@@ -97,9 +111,26 @@ Updated: 2026-03-03T17:16:00.000Z
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/10-ticket-10-e2e-vendor-update-scenario.md
 > 5 E2E tests in `document-import-vendor-update.critical.spec.ts` were failing because the test helper page does not implement `?scenario=vendor-update`. As a result, vendors never receive `catalogMatch` data and the match/update badges never render — causing assertion failures on badge visibility.
 
+### Ticket 11: Translate vendor update field names in import review badge
+- **Assignee:** Review: Joao
+- **Plan Status:** Approved
+- **Latest Update:** QA passed (Qamar, 2026-03-03) — code review + i18n verification. Build clean, all flows correct. Ready for Joao review.
+- **Severity:** Low | **Size:** XS | **Type:** Bug Fix
+- **PR:** https://github.com/jcavendish/plannifier/pull/342
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/11-ticket-11-vendor-update-field-labels.md
+> In the import review wizard (Vendors tab), when an extracted vendor matches an existing catalog entry and has fields to gap-fill, the badge reads "Vai atualizar: contact_person" or "Will update: phone" — raw DB column names instead of human-readable labels.
+
 ### Ticket 12: Fix RPC overload — create_wedding_from_import fails with p_vendor_contracts
 - **Assignee:** —
 - **Severity:** Critical | **Size:** XS | **Type:** Bug Fix
 - **PR:** https://github.com/jcavendish/plannifier/pull/341
 - **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/12-ticket-12-rpc-schema-cache-vendor-contracts.md
 > "Create wedding" button in the import review wizard fails 100% of the time with:
+
+### Ticket 13: Fix vendor-financial-empty data-testid on empty state
+- **Assignee:** Review: Joao
+- **Latest Update:** QA PASS (Qamar, 2026-03-03) — 12/12 vendor-track-derived tests pass. Ready for Joao review.
+- **Severity:** Medium | **Size:** XS | **Type:** Bug Fix
+- **PR:** https://github.com/jcavendish/plannifier/pull/343
+- **File:** /home/jcavendish/workspace/plannifier-team/backlog/done/13-ticket-13-vendor-financial-empty-testid.md
+> `VendorFinancialSummary.tsx` empty state branch rendered `data-testid="vendor-financial-summary-{id}"` instead of the expected `data-testid="vendor-financial-empty"`. This caused 3 tests in `vendor-track-derived.critical.spec.ts` to fail with count = 0.
