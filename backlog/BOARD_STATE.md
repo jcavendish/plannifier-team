@@ -1,14 +1,14 @@
 # Board State
-Updated: 2026-03-04T15:10:00.000Z
+Updated: 2026-03-04T15:29:00.000Z
 
 ## Open (unassigned)
 
 ### Ticket 16: Vendor contracts not extracted — import review shows empty contracts tab
 - **Assignee:** —
 - **Severity:** High | **Size:** S | **Type:** Bug Fix
-- **Depends On:** Ticket 15 (rate limit fix — PR #348 merged)
+- **Depends On:** Ticket 15 ✅ (merged and deployed 2026-03-04)
 - **File:** backlog/open/16-ticket-16-vendor-contracts-not-extracted-in-import.md
-> Import review screen shows 0 vendor contracts even when source documents clearly contain contract data. Suspected root cause: 429 rate limit (Ticket 15) aborts extraction before contracts are parsed. Re-verify after Ticket 15 merges.
+> Import review screen shows 0 vendor contracts even when source documents clearly contain contract data. Ticket 15 (rate limit fix) is now deployed — re-test on staging to see if contracts self-heal. If still empty, further debugging needed.
 
 ### Ticket 17: Source documents not linked to wedding after import creation
 - **Assignee:** —
@@ -24,9 +24,7 @@ Updated: 2026-03-04T15:10:00.000Z
 ## Done
 
 ### Ticket 15: Import rate limiting — 429 on concurrent file classification ✅
-- **Assignee:** Review: Joao
-- **PR:** https://github.com/jcavendish/plannifier/pull/348
-- **Latest Update:** QA passed — Qamar 2026-03-04. Serialization fix verified, 52/52 existing tests pass, new E2E test added. Ready for Joao review.
+- **PR:** #348 merged 2026-03-04, staging deployed — CI run 22675945514 ✅ (Quality Checks + Deploy both passed)
 - **File:** backlog/done/15-ticket-15-import-rate-limit-429-concurrent-classify.md
 
 ### Ticket 14: No user feedback after wedding creation ✅
@@ -35,7 +33,7 @@ Updated: 2026-03-04T15:10:00.000Z
 
 ### Ticket 18: Fix staging CI deploy pipeline ✅
 - PRs #345 (api symlink), #346 (backend symlink), #347 (type-check OOM) — all merged 2026-03-04
-- Staging deployed successfully. All Tickets 1–14 now live on staging.
+- Staging deployed successfully. All Tickets 1–15 now live on staging.
 
 ### Ticket 1–13: Import feature sprint (all merged to staging ✅)
 See individual done/ files for details.
