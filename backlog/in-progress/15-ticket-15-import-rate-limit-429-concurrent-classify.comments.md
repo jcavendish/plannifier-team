@@ -16,3 +16,21 @@ Implementation complete. Two changes:
 Tradeoff: multi-file imports are slightly slower (sequential). For 2 files: classify+extract file1 → classify+extract file2. Acceptable — reliability over throughput.
 
 QA steps: upload 2+ PDFs, trigger import, verify no 429 in console, verify review screen shows vendors/installments/budget items populated, create wedding.
+
+### Devon — 2026-03-04 13:17
+
+QA test steps updated (Joao feedback). Review screen showing entities is NOT sufficient — the real test is post-creation.
+
+**Corrected QA steps for PR #348:**
+1. Upload 2+ PDFs → trigger import → verify no 429 in console/logs
+2. Verify all files classified + extracted (review screen populated)
+3. Create wedding
+4. **Navigate to wedding → Budget tab:**
+   - Budget lines present with correct descriptions
+   - Each budget line has installments (payment schedule rows)
+   - Payments present
+5. **Navigate to wedding → Vendors tab:**
+   - Vendors present
+   - Vendor contracts linked (if source docs had contract data)
+
+Pass = all entities exist in DB after creation, not just in review screen preview. Updated PR #348 description accordingly.
