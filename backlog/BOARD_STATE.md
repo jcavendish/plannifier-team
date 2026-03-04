@@ -1,5 +1,5 @@
 # Board State
-Updated: 2026-03-04T15:29:00.000Z
+Updated: 2026-03-04T16:40:00.000Z
 
 ## Open (unassigned)
 
@@ -31,9 +31,13 @@ Updated: 2026-03-04T15:29:00.000Z
 - **PR:** #344 merged 2026-03-04, staging deployed (CI ✅)
 - **File:** backlog/done/14-ticket-14-no-feedback-after-wedding-creation.md
 
+### Ticket 19: 529 overloaded_error not retried on classify/extract ✅
+- PR #349 merged 2026-03-04, staging deployed — CI run 22678885360 ✅
+- 1-line fix: added '529' and 'overloaded' to ANTHROPIC_RETRY_OPTIONS.retryableErrors
+
 ### Ticket 18: Fix staging CI deploy pipeline ✅
 - PRs #345 (api symlink), #346 (backend symlink), #347 (type-check OOM) — all merged 2026-03-04
-- Staging deployed successfully. All Tickets 1–15 now live on staging.
+- Staging deployed successfully. All Tickets 1–19 now live on staging.
 
 ### Ticket 1–13: Import feature sprint (all merged to staging ✅)
 See individual done/ files for details.
